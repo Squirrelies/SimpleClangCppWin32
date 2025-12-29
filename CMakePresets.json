@@ -8,12 +8,13 @@
     "configurePresets": [
         {
             "name": "base-x64-clang-msvc-abi",
-            "generator": "Ninja",
+            "generator": "Visual Studio 18 2026",
             "hidden": true,
             "binaryDir": "${sourceDir}/bin/x64/clang-msvc",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang-cl",
                 "CMAKE_CXX_COMPILER": "clang-cl",
+                "CMAKE_VS_PLATFORM_TOOLSET": "ClangCL",
                 "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL",
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
                 "VCPKG_TARGET_TRIPLET": "x64-windows"

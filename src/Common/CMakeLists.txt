@@ -8,9 +8,9 @@ configure_file(${CMAKE_SOURCE_DIR}/src/VersionInfo.rc.in ${PROJECT_BINARY_DIR}/V
 add_library(${PROJECT_NAME} SHARED)
 add_library(SimpleClangCppWin32::Common ALIAS ${PROJECT_NAME})
 
-set_project_compile_options(${PROJECT_NAME})
-set_project_compile_definitions(${PROJECT_NAME})
-set_project_link_options(${PROJECT_NAME})
+# set_project_compile_options(${PROJECT_NAME})
+# set_project_compile_definitions(${PROJECT_NAME})
+# set_project_link_options(${PROJECT_NAME})
 
 target_sources(${PROJECT_NAME}
     PRIVATE
