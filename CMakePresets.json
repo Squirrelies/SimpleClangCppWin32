@@ -1,0 +1,110 @@
+{
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 31,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base-x64-clang-msvc-abi",
+            "generator": "Ninja",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/bin/x64/clang-msvc",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang-cl",
+                "CMAKE_CXX_COMPILER": "clang-cl",
+                "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL",
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-windows"
+            },
+            "environment": {
+                "CC": "clang-cl",
+                "CXX": "clang-cl"
+            }
+        },
+        {
+            "name": "Debug (Clang x64 (MSVC ABI))",
+            "inherits": [
+                "base-x64-clang-msvc-abi"
+            ],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Release (Clang x64 (MSVC ABI))",
+            "inherits": [
+                "base-x64-clang-msvc-abi"
+            ],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug (Clang x64 (MSVC ABI))",
+            "configurePreset": "Debug (Clang x64 (MSVC ABI))"
+        },
+        {
+            "name": "Release (Clang x64 (MSVC ABI))",
+            "configurePreset": "Release (Clang x64 (MSVC ABI))"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "baseTest",
+            "hidden": true,
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        },
+        {
+            "name": "Debug (Clang x64 (MSVC ABI))",
+            "inherits": [
+                "baseTest"
+            ],
+            "configurePreset": "Debug (Clang x64 (MSVC ABI))"
+        },
+        {
+            "name": "Release (Clang x64 (MSVC ABI))",
+            "inherits": [
+                "baseTest"
+            ],
+            "configurePreset": "Release (Clang x64 (MSVC ABI))"
+        }
+    ],
+    "workflowPresets": [
+        {
+            "name": "Debug (Clang x64 (MSVC ABI))",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "Debug (Clang x64 (MSVC ABI))"
+                },
+                {
+                    "type": "build",
+                    "name": "Debug (Clang x64 (MSVC ABI))"
+                }
+            ]
+        },
+        {
+            "name": "Release (Clang x64 (MSVC ABI))",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "Release (Clang x64 (MSVC ABI))"
+                },
+                {
+                    "type": "build",
+                    "name": "Release (Clang x64 (MSVC ABI))"
+                }
+            ]
+        }
+    ]
+}
