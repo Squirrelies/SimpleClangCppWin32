@@ -7,36 +7,45 @@
     },
     "configurePresets": [
         {
-            "name": "base-x64-clang-msvc-abi",
-            "generator": "Visual Studio 18 2026",
+            "name": "base-windows-x64",
             "hidden": true,
-            "binaryDir": "${sourceDir}/bin/x64/clang-msvc",
+            "generator": "Visual Studio 18 2026",
+            "binaryDir": "${sourceDir}/bin/${presetName}",
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "clang-cl",
-                "CMAKE_CXX_COMPILER": "clang-cl",
-                "CMAKE_VS_PLATFORM_TOOLSET": "ClangCL",
                 "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL",
-                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
                 "VCPKG_TARGET_TRIPLET": "x64-windows"
-            },
-            "environment": {
-                "CC": "clang-cl",
-                "CXX": "clang-cl"
             }
         },
         {
-            "name": "Debug (Clang x64 (MSVC ABI))",
+            "name": "base-windows-x64-clang-msvcabi",
+            "hidden": true,
             "inherits": [
-                "base-x64-clang-msvc-abi"
+                "base-windows-x64"
+            ],
+            "toolset": "ClangCL"
+        },
+        {
+            "name": "base-windows-x64-msvc",
+            "hidden": true,
+            "inherits": [
+                "base-windows-x64"
+            ],
+            "toolset": "MSVC"
+        },
+        {
+            "name": "Debug/Win/x64/ClangCL-MSVCABI",
+            "inherits": [
+                "base-windows-x64-clang-msvcabi"
             ],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
-            "name": "Release (Clang x64 (MSVC ABI))",
+            "name": "Release/Win/x64/ClangCL-MSVCABI",
             "inherits": [
-                "base-x64-clang-msvc-abi"
+                "base-windows-x64-clang-msvcabi"
             ],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -45,12 +54,12 @@
     ],
     "buildPresets": [
         {
-            "name": "Debug (Clang x64 (MSVC ABI))",
-            "configurePreset": "Debug (Clang x64 (MSVC ABI))"
+            "name": "Debug/Win/x64/ClangCL-MSVCABI",
+            "configurePreset": "Debug/Win/x64/ClangCL-MSVCABI"
         },
         {
-            "name": "Release (Clang x64 (MSVC ABI))",
-            "configurePreset": "Release (Clang x64 (MSVC ABI))"
+            "name": "Release/Win/x64/ClangCL-MSVCABI",
+            "configurePreset": "Release/Win/x64/ClangCL-MSVCABI"
         }
     ],
     "testPresets": [
@@ -66,44 +75,44 @@
             }
         },
         {
-            "name": "Debug (Clang x64 (MSVC ABI))",
+            "name": "Debug/Win/x64/ClangCL-MSVCABI",
             "inherits": [
                 "baseTest"
             ],
-            "configurePreset": "Debug (Clang x64 (MSVC ABI))"
+            "configurePreset": "Debug/Win/x64/ClangCL-MSVCABI"
         },
         {
-            "name": "Release (Clang x64 (MSVC ABI))",
+            "name": "Release/Win/x64/ClangCL-MSVCABI",
             "inherits": [
                 "baseTest"
             ],
-            "configurePreset": "Release (Clang x64 (MSVC ABI))"
+            "configurePreset": "Release/Win/x64/ClangCL-MSVCABI"
         }
     ],
     "workflowPresets": [
         {
-            "name": "Debug (Clang x64 (MSVC ABI))",
+            "name": "Debug/Win/x64/ClangCL-MSVCABI",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "Debug (Clang x64 (MSVC ABI))"
+                    "name": "Debug/Win/x64/ClangCL-MSVCABI"
                 },
                 {
                     "type": "build",
-                    "name": "Debug (Clang x64 (MSVC ABI))"
+                    "name": "Debug/Win/x64/ClangCL-MSVCABI"
                 }
             ]
         },
         {
-            "name": "Release (Clang x64 (MSVC ABI))",
+            "name": "Release/Win/x64/ClangCL-MSVCABI",
             "steps": [
                 {
                     "type": "configure",
-                    "name": "Release (Clang x64 (MSVC ABI))"
+                    "name": "Release/Win/x64/ClangCL-MSVCABI"
                 },
                 {
                     "type": "build",
-                    "name": "Release (Clang x64 (MSVC ABI))"
+                    "name": "Release/Win/x64/ClangCL-MSVCABI"
                 }
             ]
         }
