@@ -23,7 +23,14 @@
             "inherits": [
                 "base-windows-x64"
             ],
-            "toolset": "ClangCL"
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang-cl",
+                "CMAKE_CXX_COMPILER": "clang-cl"
+            },
+            "environment": {
+                "CC": "clang-cl",
+                "CXX": "clang-cl"
+            }
         },
         {
             "name": "base-windows-x64-msvc",
@@ -31,7 +38,14 @@
             "inherits": [
                 "base-windows-x64"
             ],
-            "toolset": "MSVC"
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl",
+                "CMAKE_CXX_COMPILER": "cl"
+            },
+            "environment": {
+                "CC": "cl",
+                "CXX": "cl"
+            }
         },
         {
             "name": "Debug/Win/x64/ClangCL-MSVCABI",
