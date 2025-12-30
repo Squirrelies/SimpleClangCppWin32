@@ -5,7 +5,10 @@ set(RC_INTERNALNAME "SimpleClangCppWin32")
 set(RC_ORIGINALFILENAME "${RC_INTERNALNAME}.exe")
 configure_file(${CMAKE_SOURCE_DIR}/src/VersionInfo.rc.in ${PROJECT_BINARY_DIR}/VersionInfoApp.rc @ONLY)
 
-add_executable(${PROJECT_NAME})
+### For Console Applications
+#add_executable(${PROJECT_NAME})
+### For Win32 Applications
+add_executable(${PROJECT_NAME} WIN32)
 add_executable(SimpleClangCppWin32::App ALIAS ${PROJECT_NAME})
 
 # set_project_compile_options(${PROJECT_NAME} "-Wno-cast-function-type-mismatch")
