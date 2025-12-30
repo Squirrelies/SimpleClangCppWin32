@@ -2,6 +2,7 @@ project(SimpleClangCppWin32_App)
 
 set(LOCAL_EXPORT_NAME App)
 set(RC_INTERNALNAME "SimpleClangCppWin32")
+set(RC_FILEDESCRIPTION "The SimpleClangCppWin32 application.")
 set(RC_ORIGINALFILENAME "${RC_INTERNALNAME}.exe")
 configure_file(${CMAKE_SOURCE_DIR}/src/VersionInfo.rc.in ${PROJECT_BINARY_DIR}/VersionInfoApp.rc @ONLY)
 

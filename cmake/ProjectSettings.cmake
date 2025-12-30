@@ -13,7 +13,6 @@ string(ASCII 169 COPYRIGHT)
 
 # VERSIONINFO properties (Ref: https://learn.microsoft.com/en-us/windows/win32/menurc/versioninfo-resource)
 set(RC_PRODUCTNAME "SimpleClangCppWin32")
-set(RC_FILEDESCRIPTION "SimpleClangCppWin32")
 set(RC_COMPANYNAME "Squirrelies")
 set(RC_LEGALCOPYRIGHT "Copyright ${COPYRIGHT} 2026 ${RC_COMPANYNAME}")
 

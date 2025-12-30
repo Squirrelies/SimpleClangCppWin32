@@ -2,6 +2,7 @@ project(SimpleClangCppWin32_Common)
 
 set(LOCAL_EXPORT_NAME Common)
 set(RC_INTERNALNAME "SimpleClangCppWin32.Common")
+set(RC_FILEDESCRIPTION "A shared library for SimpleClangCppWin32 containing common functions.")
 set(RC_ORIGINALFILENAME "${RC_INTERNALNAME}.dll")
 configure_file(${CMAKE_SOURCE_DIR}/src/VersionInfo.rc.in ${PROJECT_BINARY_DIR}/VersionInfoCommon.rc @ONLY)
 
