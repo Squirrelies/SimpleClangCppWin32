@@ -38,3 +38,4 @@ The goal of this project is to have a somewhat minimal project containing variou
     ```
 
     * Set `VCPKG_ROOT` environment variable to the folder you cloned the VCPkg repo into.
+    * Add the folder you cloned the VCPkg repo in into the `PATH` environment variable.
