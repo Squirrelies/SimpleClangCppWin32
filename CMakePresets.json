@@ -9,7 +9,6 @@
         {
             "name": "base-windows-x64",
             "hidden": true,
-            "generator": "Visual Studio 18 2026",
             "binaryDir": "${sourceDir}/bin/${presetName}",
             "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
             "cacheVariables": {
@@ -23,13 +22,10 @@
             "inherits": [
                 "base-windows-x64"
             ],
+            "generator": "Ninja",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "clang-cl",
-                "CMAKE_CXX_COMPILER": "clang-cl"
-            },
-            "environment": {
-                "CC": "clang-cl",
-                "CXX": "clang-cl"
+                "CMAKE_C_COMPILER": "${sourceDir}/tools/clang-cl-msvcenv.cmd",
+                "CMAKE_CXX_COMPILER": "${sourceDir}/tools/clang-cl-msvcenv.cmd"
             }
         },
         {
@@ -38,17 +34,11 @@
             "inherits": [
                 "base-windows-x64"
             ],
-            "cacheVariables": {
-                "CMAKE_C_COMPILER": "cl",
-                "CMAKE_CXX_COMPILER": "cl"
-            },
-            "environment": {
-                "CC": "cl",
-                "CXX": "cl"
-            }
+            "generator": "Visual Studio 18 2026"
         },
         {
             "name": "Debug/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Debug (Windows x64 - Clang (MSVC ABI))",
             "inherits": [
                 "base-windows-x64-clang-msvcabi"
             ],
@@ -58,6 +48,7 @@
         },
         {
             "name": "Release/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Release (Windows x64 - Clang (MSVC ABI))",
             "inherits": [
                 "base-windows-x64-clang-msvcabi"
             ],
@@ -69,10 +60,12 @@
     "buildPresets": [
         {
             "name": "Debug/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Debug (Windows x64 - Clang (MSVC ABI))",
             "configurePreset": "Debug/Win/x64/ClangCL-MSVCABI"
         },
         {
             "name": "Release/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Release (Windows x64 - Clang (MSVC ABI))",
             "configurePreset": "Release/Win/x64/ClangCL-MSVCABI"
         }
     ],
@@ -90,6 +83,7 @@
         },
         {
             "name": "Debug/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Debug (Windows x64 - Clang (MSVC ABI))",
             "inherits": [
                 "baseTest"
             ],
@@ -97,6 +91,7 @@
         },
         {
             "name": "Release/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Release (Windows x64 - Clang (MSVC ABI))",
             "inherits": [
                 "baseTest"
             ],
@@ -106,6 +101,7 @@
     "workflowPresets": [
         {
             "name": "Debug/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Debug (Windows x64 - Clang (MSVC ABI))",
             "steps": [
                 {
                     "type": "configure",
@@ -119,6 +115,7 @@
         },
         {
             "name": "Release/Win/x64/ClangCL-MSVCABI",
+            "displayName": "Release (Windows x64 - Clang (MSVC ABI))",
             "steps": [
                 {
                     "type": "configure",
