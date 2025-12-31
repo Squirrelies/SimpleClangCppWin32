@@ -22,10 +22,11 @@
             "inherits": [
                 "base-windows-x64"
             ],
-            "generator": "Ninja",
-            "cacheVariables": {
-                "CMAKE_C_COMPILER": "${sourceDir}/tools/clang-cl-msvcenv.cmd",
-                "CMAKE_CXX_COMPILER": "${sourceDir}/tools/clang-cl-msvcenv.cmd"
+            "generator": "Visual Studio 18 2026",
+            "toolset": "ClangCL",
+            "environment": {
+                "LLVMInstallDir": "C:/Program Files/LLVM",
+                "LLVMToolsVersion": "21"
             }
         },
         {
