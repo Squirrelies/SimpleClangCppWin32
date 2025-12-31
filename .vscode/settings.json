@@ -1,0 +1,15 @@
+{
+    "C_Cpp.default.cppStandard": "c++23",
+    "cmake.generator": "Visual Studio 18 2026",
+    "cmake.allowUnsupportedPresetsVersions": true,
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.args": [
+        "-std=c++23"
+    ],
+    "C_Cpp.codeAnalysis.runAutomatically": true,
+    "C_Cpp.codeAnalysis.exclude": {
+        "**/extern/**": true
+    }
+}
