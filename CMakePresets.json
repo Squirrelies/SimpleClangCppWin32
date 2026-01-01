@@ -42,7 +42,8 @@
             "inherits": [
                 "base-windows-x64"
             ],
-            "generator": "Visual Studio 18 2026"
+            "generator": "Visual Studio 18 2026",
+            "toolset": "v145,host=x64"
         },
         {
             "name": "Debug/Win/x64/ClangCL-MSVCABI",
@@ -63,6 +64,26 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        },
+        {
+            "name": "Debug/Win/x64/MSVC",
+            "displayName": "Debug (Windows x64 - MSVC)",
+            "inherits": [
+                "base-windows-x64-msvc"
+            ],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Release/Win/x64/MSVC",
+            "displayName": "Release (Windows x64 - MSVC)",
+            "inherits": [
+                "base-windows-x64-msvc"
+            ],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [
@@ -75,6 +96,16 @@
             "name": "Release/Win/x64/ClangCL-MSVCABI",
             "displayName": "Release (Windows x64 - Clang (MSVC ABI))",
             "configurePreset": "Release/Win/x64/ClangCL-MSVCABI"
+        },
+        {
+            "name": "Debug/Win/x64/MSVC",
+            "displayName": "Debug (Windows x64 - MSVC)",
+            "configurePreset": "Debug/Win/x64/MSVC"
+        },
+        {
+            "name": "Release/Win/x64/MSVC",
+            "displayName": "Release (Windows x64 - MSVC)",
+            "configurePreset": "Release/Win/x64/MSVC"
         }
     ],
     "testPresets": [
@@ -104,6 +135,22 @@
                 "baseTest"
             ],
             "configurePreset": "Release/Win/x64/ClangCL-MSVCABI"
+        },
+        {
+            "name": "Debug/Win/x64/MSVC",
+            "displayName": "Debug (Windows x64 - MSVC)",
+            "inherits": [
+                "baseTest"
+            ],
+            "configurePreset": "Debug/Win/x64/MSVC"
+        },
+        {
+            "name": "Release/Win/x64/MSVC",
+            "displayName": "Release (Windows x64 - MSVC)",
+            "inherits": [
+                "baseTest"
+            ],
+            "configurePreset": "Release/Win/x64/MSVC"
         }
     ],
     "workflowPresets": [
@@ -132,6 +179,34 @@
                 {
                     "type": "build",
                     "name": "Release/Win/x64/ClangCL-MSVCABI"
+                }
+            ]
+        },
+        {
+            "name": "Debug/Win/x64/MSVC",
+            "displayName": "Debug (Windows x64 - MSVC)",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "Debug/Win/x64/MSVC"
+                },
+                {
+                    "type": "build",
+                    "name": "Debug/Win/x64/MSVC"
+                }
+            ]
+        },
+        {
+            "name": "Release/Win/x64/MSVC",
+            "displayName": "Release (Windows x64 - MSVC)",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "Release/Win/x64/MSVC"
+                },
+                {
+                    "type": "build",
+                    "name": "Release/Win/x64/MSVC"
                 }
             ]
         }
