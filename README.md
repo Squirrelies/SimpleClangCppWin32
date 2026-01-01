@@ -22,15 +22,11 @@ The goal of this project is to have a somewhat minimal project containing variou
 
     `winget install -e --id Kitware.CMake -a x64`
 
-4. Ninja
-
-    `winget install -e --id Ninja-build.Ninja -a x64`
-
-5. Git
+4. Git
 
     `winget install -e --id Git.Git -a x64`
 
-6. VCPkg
+5. VCPkg
 
     ```powershell
     git clone https://github.com/microsoft/vcpkg.git .
