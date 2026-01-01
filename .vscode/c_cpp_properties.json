@@ -3,6 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
+                "${default}",
                 "${workspaceFolder}/**"
             ],
             "defines": [
@@ -13,8 +14,6 @@
             "windowsSdkVersion": "10.0.26100.0",
             "cStandard": "c23",
             "cppStandard": "c++23",
-            "intelliSenseMode": "windows-clang-x64",
-            "compilerPath": "C:/Program Files/LLVM/bin/clang-cl.exe",
             "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
